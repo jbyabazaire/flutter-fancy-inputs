@@ -1,5 +1,4 @@
 import 'package:fancy_form_inputs/src/fancy_inputs_config.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -16,6 +15,7 @@ class FancyTextInput extends ConsumerWidget {
   String? errorsControllerTag;
 
   bool disabled = false;
+  bool obscureText = false;
 
   int? maxLength;
   bool maxLengthEnforced;
@@ -45,6 +45,7 @@ class FancyTextInput extends ConsumerWidget {
     this.minLines = 1,
     this.config,
     this.trigger,
+    this.obscureText = false,
     this.inputFormatters = null,
   }) : super(key: key) {}
 
@@ -107,6 +108,7 @@ class FancyTextInput extends ConsumerWidget {
       maxLength: maxLength,
       minLines: minLines,
       maxLines: minLines,
+      obscureText: obscureText,
       // maxLengthEnforced: maxLengthEnforced,
       style: TextStyle(
         fontSize: 15.5,
@@ -123,6 +125,7 @@ class FancyTextInput extends ConsumerWidget {
       decoration: InputDecoration(
         // fillColor: Cc.BG_FRONT,
         filled: true,
+
         hintText: "Enter ${config!.labelText}",
         // errorText: errorText,
         // labelText: labelText,
